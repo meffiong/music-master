@@ -1,4 +1,4 @@
 img{ width: 300px;height: 300px;border-radius: 50%;object-fit: cover;box-shadow: 0px 0px 10px #333; }
-input[type=text]{ width: 600px;padding: 10px;clear: both; }
+input[type=text]{ width: 80%;padding: 10px;clear: both; }
 input[type=submit]{ width: 200px;padding: 5px;clear: both;display: block; }
 input{ outline: none; }
