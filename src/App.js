@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Artist from './Artist'
 import Tracks from './Tracks'
+import Search from './Search'
 import './App.css';
 
 
@@ -10,22 +11,15 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      artistQuery: '',
       artist: null,
       tracks: []
     }
   }
 
-  handleChange = (e) => {
-    console.log('event', e.target.value);
-    this.setState({artistQuery: e.target.value})
-  }
-
-  
-  searchArtist = () => {
+  searchArtist = (artistQuery) => {
     console.log('this.state', this.state)
 
-    fetch(`${API_ADDRESS}/artist/${this.state.artistQuery}`) 
+    fetch(`${API_ADDRESS}/artist/${artistQuery}`) 
       .then( response => response.json() )
       .then( json => {
       
@@ -45,26 +39,18 @@ class App extends Component{
     
     })
     .catch(error => alert(error.message));
-
-      
-    
 }
+  
 
-  handleKeyPress = e => {
-    if(e.key === 'Enter'){
-      this.searchArtist();
-    }
-  }
 
   render(){
     return (
       <div className="App">
         <h1>Music Master</h1>
         <p className="text-muted text-caption">Search your favorite artist</p>
-        <input type="text" onChange={this.handleChange} onKeyPress={this.handleKeyPress} />
-        <button onClick={this.searchArtist}>Search</button>
+        <Search searchArtist = {this.searchArtist} />
         <Artist artist = {this.state.artist} />
-        <h4>Albums by {this.state.artist &&this.state.artist.name}</h4>
+        <h4> {this.state.artist && 'Albums by ' + this.state.artist.name} </h4>
         <Tracks tracks = {this.state.tracks} />
       </div>
     );
