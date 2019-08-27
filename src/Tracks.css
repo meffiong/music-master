@@ -1,2 +1,16 @@
-.track-div{ background:#ddd;width: 300px;margin: 10px auto;padding-bottom: 10px;}
-.track-div img{ width: 300px;height: 300px;margin: 0px auto; }
+.track-div { width: 250px; margin: 10px; padding-bottom: 10px; display: inline-block; vertical-align: top;position: relative; }
+.track-div img{ width: 250px;height: 250px;margin: 0px auto;cursor: pointer; }
+p.track-icon { position: absolute; top: 0px; width: 50px; left: 50%; margin-left: -25px; background: rgba(0,0,0,.6); color: #FFF; height: 50px; border-radius: 50%; justify-content: center; display: flex; align-items: center; top: 40%; margin-top: -25px; }
+p.track-icon{font-weight: bold;}
+
+input[type=text] + button {
+    display: block;
+    margin: 15px auto 40px;
+    font-size: 18px;
+    background: #888;
+    color: #FFF;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 10px;
+}

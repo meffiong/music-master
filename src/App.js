@@ -16,6 +16,10 @@ class App extends Component{
     }
   }
 
+  componentDidMount(){
+    this.searchArtist('lupe');
+  }
+
   searchArtist = (artistQuery) => {
     console.log('this.state', this.state)
 
@@ -50,7 +54,7 @@ class App extends Component{
         <p className="text-muted text-caption">Search your favorite artist</p>
         <Search searchArtist = {this.searchArtist} />
         <Artist artist = {this.state.artist} />
-        <h4> {this.state.artist && 'Albums by ' + this.state.artist.name} </h4>
+        <h4> {this.state.artist && 'Albums by ' + this.state.artist.name + ': Click image to preview track.'}</h4>
         <Tracks tracks = {this.state.tracks} />
       </div>
     );
